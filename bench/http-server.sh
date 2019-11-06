@@ -22,7 +22,7 @@ $(pkill -9 ehttp-server || printf "")
 function gobench {
     echo "--- $1 ---"
     if [ "$3" != "" ]; then
-        go build -gcflags '-m' -o $2 $3
+        go build -o $2 $3
     fi
     GOMAXPROCS=1 $2 --port $4 &
     sleep 1
@@ -32,6 +32,6 @@ function gobench {
     echo ""
 }
 
-gobench "GO STDLIB" bin/net-http-server  ../examples/net-http-server/main.go 8081
-gobench "FASTHTTP" bin/fasthttp-server ../examples/fasthttp-server/main.go 8083
+# gobench "GO STDLIB" bin/net-http-server  ../examples/net-http-server/main.go 8081
+# gobench "FASTHTTP" bin/fasthttp-server ../examples/fasthttp-server/main.go 8083
 gobench "EHTTP" bin/ehttp-server ../examples/ehttp-http-server/main.go 8085
