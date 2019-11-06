@@ -1,5 +1,4 @@
 // Copyright 2019 Yuanting Liang. All rights reserved.
-// Copyright 2018 Joshua J Baker. All rights reserved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -136,6 +135,7 @@ func (s *ServerBootstrap) crash() {
 	}
 }
 
+//once the goruntine panic, it will not work all right
 func (s *ServerBootstrap) startMainloop() error {
 	defer func() {
 		s.ctx.wg.Done()
@@ -173,7 +173,7 @@ func (s *ServerBootstrap) startMainloop() error {
 				if err := syscall.SetNonblock(nfd, true); err != nil {
 					continue
 				}
-				c := &conn{fd: nfd, sa: sa, lnidx: pid, loop: s.MainLoop}
+				c := &conn{fd: nfd, sa: sa, lnidx: pid, loop: s.MainLoop, packet: make([]byte, 0xFFFF)}
 				//find the loop
 				idx := nfd % s.NumProc
 				//fmt.Println("connect,nfd:", nfd, " idx:", idx)

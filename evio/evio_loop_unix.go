@@ -21,6 +21,7 @@ type conn struct {
 	lnidx      int              // listener index in the server lns list
 	out        []byte           // write buffer
 	sa         syscall.Sockaddr // remote socket address
+	packet     []byte           // read buffer
 	reuse      bool             // should reuse input buffer
 	opened     bool             // connection opened event fired
 	action     Action           // next user action
@@ -226,14 +227,14 @@ func (l *loop) Wake(c *conn) error {
 
 func (l *loop) Read(c *conn) error {
 	var in []byte
-	n, err := syscall.Read(c.fd, l.packet)
+	n, err := syscall.Read(c.fd, c.packet)
 	if n == 0 || err != nil {
 		if err == syscall.EAGAIN {
 			return nil
 		}
 		return l.CloseConn(c, err)
 	}
-	in = l.packet[:n]
+	in = c.packet[:n]
 	if !c.reuse {
 		in = append([]byte{}, in...)
 	}
@@ -264,10 +265,10 @@ func (l *loop) workRun() {
 
 	fmt.Println("--work run started --", l.idx)
 	//fmt.Println("i am waitting haha,", p.fd)
-
+	events := make([]syscall.EpollEvent, 64)
 	fd := l.poll.FD()
 	for {
-		events := make([]syscall.EpollEvent, 64)
+
 		n, err := syscall.EpollWait(fd, events, -1)
 		if err != nil && err != syscall.EINTR {
 			//fmt.Println("ERROR syscall.EpollWait:", n)
