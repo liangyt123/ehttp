@@ -33,5 +33,5 @@ function gobench {
 }
 
 gobench "GO STDLIB" bin/net-http-server  ../examples/net-http-server/main.go 8081
-gobench "FASTHTTP" bin/fasthttp-server fasthttp-server/main.go 8083
+gobench "FASTHTTP" bin/fasthttp-server ../examples/fasthttp-server/main.go 8083
 gobench "EHTTP" bin/ehttp-server ../examples/ehttp-http-server/main.go 8085
