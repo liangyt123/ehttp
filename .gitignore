@@ -7,7 +7,7 @@
 bin/
 .vscode
 .idea
-
+main
 
 # Test binary, build with `go test -c`
 *.test
