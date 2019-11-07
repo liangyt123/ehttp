@@ -1,0 +1,55 @@
+{
+	"comment": "",
+	"ignore": "",
+	"package": [
+		{
+			"checksumSHA1": "x6p6noEmO+bGOSMs6jeg7KRii0M=",
+			"path": "github.com/kavu/go_reuseport",
+			"revision": "47bb7f1bfa3921a92422a1eb4f0941e9caed1103",
+			"revisionTime": "2019-10-29T07:54:48Z"
+		},
+		{
+			"checksumSHA1": "ZYlWcDIs0M/69ABnOCXO2iS0LjA=",
+			"path": "github.com/klauspost/compress/flate",
+			"revision": "16a4d3d7137cdefd94d420f22b5c20260674b95c",
+			"revisionTime": "2019-10-28T07:06:56Z"
+		},
+		{
+			"checksumSHA1": "7tXwTmLRKOiOSmHWdC19KUA6KmI=",
+			"path": "github.com/klauspost/compress/gzip",
+			"revision": "16a4d3d7137cdefd94d420f22b5c20260674b95c",
+			"revisionTime": "2019-10-28T07:06:56Z"
+		},
+		{
+			"checksumSHA1": "RbUlnxRdaqujEvG8wnbqC1GUqBo=",
+			"path": "github.com/klauspost/compress/zlib",
+			"revision": "16a4d3d7137cdefd94d420f22b5c20260674b95c",
+			"revisionTime": "2019-10-28T07:06:56Z"
+		},
+		{
+			"checksumSHA1": "QQySTg/ytuML2JKjpBqCmwRfUVg=",
+			"path": "github.com/valyala/bytebufferpool",
+			"revision": "cdfbe9377474227bb42120c1e22fd4433e7f69bf",
+			"revisionTime": "2018-09-05T18:22:47Z"
+		},
+		{
+			"checksumSHA1": "C+a+IuqOGbxNwJWYIOZAWcArjOk=",
+			"path": "github.com/valyala/fasthttp",
+			"revision": "70223a183c44d77b3362f263cef6cfa45650c5a5",
+			"revisionTime": "2019-11-06T13:35:52Z"
+		},
+		{
+			"checksumSHA1": "Cbpk2sNtfBkXSps5mw9psPCPwQ0=",
+			"path": "github.com/valyala/fasthttp/fasthttputil",
+			"revision": "70223a183c44d77b3362f263cef6cfa45650c5a5",
+			"revisionTime": "2019-11-06T13:35:52Z"
+		},
+		{
+			"checksumSHA1": "xxDLWGfh+s5Y6tTALppt9fy42g4=",
+			"path": "github.com/valyala/fasthttp/stackless",
+			"revision": "70223a183c44d77b3362f263cef6cfa45650c5a5",
+			"revisionTime": "2019-11-06T13:35:52Z"
+		}
+	],
+	"rootPath": "ehttp"
+}
